@@ -2,9 +2,7 @@ name: Deploy Frontend to S3 and CloudFront
 
 on:
   push:
-    branches: [main]
-    paths:
-      - 'frontend/**'
+    branches: [master, main]
   workflow_dispatch:
 
 env:
