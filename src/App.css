@@ -1,0 +1,142 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App-header {
+  text-align: center;
+  padding: 2rem 0;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.App-header p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.9;
+}
+
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.task-section {
+  text-align: center;
+}
+
+.trigger-button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+}
+
+.trigger-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.trigger-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: rgba(231, 76, 60, 0.2);
+  border: 1px solid #e74c3c;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.error-message p {
+  margin: 0;
+  color: #fff;
+}
+
+.result-section {
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.result-section h2 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.random-string {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  word-break: break-all;
+  font-family: 'Courier New', monospace;
+}
+
+.random-string code {
+  color: #00ff88;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.databases-section {
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  text-align: left;
+}
+
+.databases-section h2 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.database-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.database-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border-left: 4px solid #00ff88;
+  transition: background 0.2s ease;
+}
+
+.database-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.db-size {
+  color: #bbb;
+  font-size: 0.9rem;
+}
