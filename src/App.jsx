@@ -18,15 +18,13 @@ function App() {
     setDatabases([])
 
     try {
-      // Trigger ECS Fargate task and get random string
+      // Trigger ECS Fargate task and get random string + database list
       const response = await axios.post(`${BACKEND_URL}/api/trigger-task`)
       
       if (response.data.success) {
         setRandomString(response.data.randomString)
-        
-        // Get list of databases
-        const dbResponse = await axios.get(`${BACKEND_URL}/api/databases`)
-        setDatabases(dbResponse.data.databases || [])
+        // Set databases from the trigger-task response
+        setDatabases(response.data.databases || [])
       } else {
         setError('Failed to trigger task')
       }
