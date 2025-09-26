@@ -10,6 +10,11 @@ on:
 env:
   AWS_REGION: us-east-1
   NODE_VERSION: '18'
+  # AWS Resource Values from Terraform Output
+  S3_BUCKET_NAME: mediamint-prod-frontend-417c50c6
+  CLOUDFRONT_DISTRIBUTION_ID: E1YXMET2XRDALR
+  CLOUDFRONT_DOMAIN_NAME: d3phvmll9t3ee2.cloudfront.net
+  VITE_BACKEND_URL: https://mediamint-prod-326711361.us-east-1.elb.amazonaws.com
 
 jobs:
   deploy:
@@ -36,7 +41,7 @@ jobs:
       - name: Build application
         run: npm run build
         env:
-          VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
+          VITE_BACKEND_URL: ${{ env.VITE_BACKEND_URL }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -47,12 +52,12 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete --exact-timestamps
+          aws s3 sync dist/ s3://${{ env.S3_BUCKET_NAME }} --delete --exact-timestamps
         
       - name: Invalidate CloudFront
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
 
       - name: Deployment Summary
@@ -60,4 +65,4 @@ jobs:
           echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
           echo "Frontend successfully deployed to S3" >> $GITHUB_STEP_SUMMARY
           echo "CloudFront cache invalidated" >> $GITHUB_STEP_SUMMARY
-          echo "CloudFront URL: https://${{ secrets.CLOUDFRONT_DOMAIN_NAME }}" >> $GITHUB_STEP_SUMMARY
+          echo "CloudFront URL: https://${{ env.CLOUDFRONT_DOMAIN_NAME }}" >> $GITHUB_STEP_SUMMARY
