@@ -9,10 +9,10 @@ env:
   AWS_REGION: us-east-1
   NODE_VERSION: '18'
   # AWS Resource Values from Terraform Output
-  S3_BUCKET_NAME: mediamint-prod-frontend-417c50c6
-  CLOUDFRONT_DISTRIBUTION_ID: E1YXMET2XRDALR
-  CLOUDFRONT_DOMAIN_NAME: d3phvmll9t3ee2.cloudfront.net
-  VITE_BACKEND_URL: https://mediamint-prod-326711361.us-east-1.elb.amazonaws.com
+  S3_BUCKET_NAME: mediamint-prod-frontend-fb3e517c
+  CLOUDFRONT_DISTRIBUTION_ID: ER9BLNAJA670K
+  CLOUDFRONT_DOMAIN_NAME: d3mdc4iuhybuoe.cloudfront.net
+  VITE_BACKEND_URL: https://mediamint-prod-1184789238.us-east-1.elb.amazonaws.com
 
 jobs:
   deploy:
