@@ -5,6 +5,8 @@ import './App.css'
 // Get backend URL from environment variable or use default
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'
 
+console.log('Backend URL:', BACKEND_URL)
+
 function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [randomString, setRandomString] = useState('')

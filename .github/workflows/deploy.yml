@@ -10,9 +10,9 @@ env:
   NODE_VERSION: '18'
   # AWS Resource Values from Terraform Output
   S3_BUCKET_NAME: mediamint-prod-frontend-219e5bb2
-  CLOUDFRONT_DISTRIBUTION_ID: E38TJHI3AINJNR
-  CLOUDFRONT_DOMAIN_NAME: d1tjnelb0876iy.cloudfront.net
-  VITE_BACKEND_URL: https://api.vittas.in
+  CLOUDFRONT_DISTRIBUTION_ID: EELC209VJU88F
+  CLOUDFRONT_DOMAIN_NAME: d3qfl1rbvmzpcx.cloudfront.net
+  VITE_BACKEND_URL: https://d1tjnelb0876iy.cloudfront.net
 
 jobs:
   deploy:
@@ -30,6 +30,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify build configuration
+        run: |
+          echo "Building with the following configuration:"
+          echo "Backend URL: ${{ env.VITE_BACKEND_URL }}"
+          echo "CloudFront Domain: ${{ env.CLOUDFRONT_DOMAIN_NAME }}"
 
       - name: Build application
         run: npm run build
